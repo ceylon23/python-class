@@ -41,8 +41,17 @@ def create_grades_dict (file_name):
 
 def print_grades(file_name):
     grades_dict=create_grades_dict(file_name)
-     
 
-    return grades_dict
+    id_order = grades_dict.keys()
+    id_order = sorted(id_order)
+
+    k = 0
+
+    print('{0: ^10} | {1: ^16} | {2: ^6} | {3: ^6} | {4: ^6} | {5: ^6} | {6: ^6} |'.format("ID", "Name", "Test_1", "Test_2", "Test_3", "Test_4", "Avg."))
+    while k < len(id_order):
+        print('{0: ^10} | {1: <16} | {2: >6} | {3: >6} | {4: >6} | {5: >6} | {6: >6.2f} |'.format(id_order[k], grades_dict[id_order[k]][0], grades_dict[id_order[k]][1], grades_dict[id_order[k]][2], grades_dict[id_order[k]][3], grades_dict[id_order[k]][4], grades_dict[id_order[k]][5]))
+        k += 1     
+
+    return 
     
 print(print_grades ("my_file.txt"))
